@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Addresses } from "./addresses.entity";
 import { Categories } from "./categories.entity";
 
@@ -16,6 +16,9 @@ export class real_state {
 
     @Column({type: "integer", nullable: false })
     size: number;
+
+    @CreateDateColumn({type: 'date', nullable: false})
+    createdAt?: Date;
 
     @UpdateDateColumn({type: 'date', nullable: false })
     updatedAt?: Date;

@@ -1,5 +1,5 @@
-import { hash } from "bcryptjs";
-import { BeforeInsert, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { getRounds, hash, hashSync } from "bcryptjs";
+import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("user")
 export class User {
@@ -28,7 +28,12 @@ export class User {
     deletedAt: string | null | undefined;
 
     @BeforeInsert()
-    async hashPassword() {
-        this.password = await hash(this.password, 10);
+    @BeforeUpdate()
+    hashPassword() {
+        const isEncrypted: number = getRounds(this.password); 
+
+        if (!isEncrypted) {
+            this.password = hashSync(this.password, 10);
+        }
     }
 }

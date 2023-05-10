@@ -20,3 +20,6 @@ export const userReqSchema = z.object({
     admin: z.boolean().optional().default(false)
 });
 
+export const userSchemaArr = z.array(userSchema);
+
+export const userSchemaArrRes = z.array(userResSchema);

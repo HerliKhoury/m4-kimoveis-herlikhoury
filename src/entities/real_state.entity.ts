@@ -1,10 +1,10 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { Addresses } from "./addresses.entity";
-import { Categories } from "./categories.entity";
+import { Address } from "./addresses.entity";
+import { Category } from "./categories.entity";
 
 
-@Entity("real_state")
-export class real_state {
+@Entity("RealEstate")
+export class RealEstate {
     @PrimaryGeneratedColumn('increment')
     id: number
 
@@ -23,10 +23,10 @@ export class real_state {
     @UpdateDateColumn({type: 'date', nullable: false })
     updatedAt?: Date;
 
-    @OneToOne(() => Addresses)
+    @OneToOne(() => Address)
     @JoinColumn()
-    addresses: Addresses;
+    addresses: Address;
 
-    @ManyToOne(() => Categories )
-    categories: Categories;
+    @ManyToOne(() => Category )
+    category: Category;
 }

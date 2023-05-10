@@ -1,9 +1,9 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { real_state } from "./real_state.entity";
 
 
-@Entity("categories")
-export class Categories {
+
+@Entity("category")
+export class Category {
     @PrimaryGeneratedColumn('increment')
     id: number
 

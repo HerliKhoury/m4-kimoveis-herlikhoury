@@ -1,10 +1,10 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { real_state } from "./real_state.entity";
-import { Users } from "./users.entity";
+import { RealEstate } from "./real_state.entity";
+import { User } from "./users.entity";
 
 
-@Entity("schedules")
-export class Schedules {
+@Entity("schedule")
+export class Schedule {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
@@ -14,9 +14,9 @@ export class Schedules {
     @Column({type: 'time', nullable: false})
     hour: string;
 
-    @ManyToOne(() => real_state )
-    real_state: real_state;
+    @ManyToOne(() => RealEstate )
+    real_state: RealEstate;
 
-    @ManyToOne(() => Users )
-    users: Users;
+    @ManyToOne(() => User )
+    user: User;
 }

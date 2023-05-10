@@ -1,8 +1,8 @@
 import { hash } from "bcryptjs";
 import { BeforeInsert, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity("users")
-export class Users {
+@Entity("user")
+export class User {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
@@ -19,13 +19,13 @@ export class Users {
     password: string;
 
     @CreateDateColumn({type: 'date', nullable: false})
-    createdAt?: Date;
+    createdAt: string;
 
     @UpdateDateColumn({type: 'date', nullable: false})
-    updatedAt?: Date;
+    updatedAt: string;
 
     @DeleteDateColumn({type: 'date', nullable: true })
-    deletedAt?: Date | null | undefined;
+    deletedAt: string | null | undefined;
 
     @BeforeInsert()
     async hashPassword() {

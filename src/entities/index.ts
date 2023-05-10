@@ -1,7 +1,7 @@
-import { real_state } from "./real_state.entity";
-import { Users } from "./users.entity";
-import { Categories } from "./categories.entity";
-import { Addresses } from "./addresses.entity";
-import { Schedules } from "./schedules.entity";
+import { RealEstate } from "./real_state.entity";
+import { User } from "./users.entity";
+import { Category } from "./categories.entity";
+import { Address } from "./addresses.entity";
+import { Schedule } from "./schedules.entity";
 
-export {real_state, Users, Categories, Addresses, Schedules};
+export {RealEstate, User, Category, Address, Schedule};

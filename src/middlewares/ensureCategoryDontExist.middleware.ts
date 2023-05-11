@@ -21,7 +21,7 @@ export const ensureCategoryDontExist = async (
     });
 
     if(category){
-        throw new AppError("Category already registered", 409)
+        throw new AppError("Category already exists", 409)
     };
 
     return next();

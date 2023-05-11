@@ -9,9 +9,9 @@ export const createUserService = async (newUserData: TUserReq): Promise<TUserRes
 
     const newUser: TUser = userRepo.create(newUserData);
 
-    await userRepo.save(newUser)
+    await userRepo.save(newUser);
 
-    const validUser: TUserRes = userResSchema.parse(newUser)
+    const validUser: TUserRes = userResSchema.parse(newUser);
 
     return validUser;
 };

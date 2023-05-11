@@ -4,6 +4,7 @@ import { createUserService } from "../services/users/createUser.service";
 import { listUsersService } from "../services/users/listUsers.service";
 import { deleteUsersService } from "../services/users/deleteUser.service";
 import { updateUserService } from "../services/users/updateUser.service";
+import { userReqSchema } from "../schemas/user.schema";
 
 export const createUserController = async (
     req: Request,

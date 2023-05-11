@@ -14,10 +14,10 @@ export const userSchema = z.object({
 export const userResSchema = userSchema.omit({ password: true });
 
 export const userReqSchema = z.object({
-    name: z.string().max(45).nonempty(),
-    email: z.string().email().max(45).nonempty(),
-    password: z.string().max(120).nonempty(),
-    admin: z.boolean().optional().default(false)
+    name: z.string().max(45),
+    email: z.string().email().max(45),
+    password: z.string().max(120),
+    admin: z.boolean().default(false)
 });
 
 export const userSchemaArr = z.array(userSchema);

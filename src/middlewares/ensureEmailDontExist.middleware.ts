@@ -21,7 +21,7 @@ export const ensureEmailDontExist = async (
     });
 
     if(user){
-        throw new AppError("E-mail already registered", 409)
+        throw new AppError("Email already exists", 409)
     };
 
     return next();

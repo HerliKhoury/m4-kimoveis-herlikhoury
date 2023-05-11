@@ -11,8 +11,8 @@ export class RealEstate {
     @Column({type: 'boolean', default: false})
     sold: boolean;
 
-    @Column({ type: 'decimal', precision: 12, scale: 2 , default: 0, nullable: true})
-    value: number;
+    @Column({ type: 'decimal', precision: 12, scale: 2 , default: 0})
+    value: number | string;
 
     @Column({type: "integer", nullable: false })
     size: number;
@@ -27,6 +27,6 @@ export class RealEstate {
     @JoinColumn()
     addresses: Address;
 
-    @ManyToOne(() => Category )
+    @ManyToOne(() => Category , (category) => category.realEstate)
     category: Category;
 }

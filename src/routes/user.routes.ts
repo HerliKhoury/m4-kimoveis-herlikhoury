@@ -5,10 +5,11 @@ import { userReqSchema } from "../schemas/user.schema";
 import { createUserController, deleteUserController, listAllUsersController, updateUserController } from "../controllers/users.controllers";
 import { ensureUserIsAdm } from "../middlewares/ensureUserIsAdmin.middleware";
 import { ensureUserIsActive } from "../middlewares/ensureUserIsActive.middleware";
+import { ensureTokenIsValid } from "../middlewares/ensureTokenIsValid";
 
 export const userRoutes: Router = Router();
 
 userRoutes.post("", ensureBodyIsValid(userReqSchema), ensureEmailDontExist, createUserController);
-userRoutes.get("", ensureUserIsAdm, listAllUsersController);
+userRoutes.get("", ensureTokenIsValid, ensureUserIsAdm, listAllUsersController);
 userRoutes.patch("/:id", updateUserController);
 userRoutes.delete("/:id", ensureUserIsAdm, ensureUserIsActive, deleteUserController);

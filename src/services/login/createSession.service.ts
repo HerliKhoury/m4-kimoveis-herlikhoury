@@ -26,11 +26,11 @@ export const createSessionService = async (
     if (!passwordMatch) {
         throw new AppError('Wrong email/password', 401)
     };
-
+    
     const token: string = jwt.sign(
         {
             admin: user.admin,
-            userId: user.admin
+            userId: user.id
         },
         process.env.SECRET_KEY!,
         {

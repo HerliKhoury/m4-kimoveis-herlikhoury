@@ -9,27 +9,28 @@ import jwt from "jsonwebtoken";
 export const createSessionService = async (
     loginData: TLoginRequest
 ): Promise<string> => {
-    const userRepo: Repository<User> = AppDataSource.getRepository(User)
+    const userRepo: Repository<User> = AppDataSource.getRepository(User);
 
     const user: User | null = await userRepo.findOne({
         where: {
             email: loginData.email
         },
-    })
+    });
 
     if (!user) {
         throw new AppError("Wrong email/password", 401);
-    }
+    };
 
-    const passwordMatch = await compare(loginData.password, user.password)
+    const passwordMatch = await compare(loginData.password, user.password);
 
     if (!passwordMatch) {
         throw new AppError('Wrong email/password', 401)
-    }
+    };
 
     const token: string = jwt.sign(
         {
-            admin: user.admin
+            admin: user.admin,
+            userId: user.admin
         },
         process.env.SECRET_KEY!,
         {

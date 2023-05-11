@@ -21,6 +21,7 @@ export const ensureTokenIsValid = async (
             throw new AppError(err.message, 401);
         }
         res.locals.admin = decoded.admin;
+        res.locals.userId = decoded.userId;
     });
 
     return next();

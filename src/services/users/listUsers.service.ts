@@ -4,7 +4,7 @@ import { User } from "../../entities";
 import { TUserArr, TUserArrRes } from "../../interfaces/user.interfaces";
 import { userSchemaArrRes } from "../../schemas/user.schema";
 
-export const listUsers = async (): Promise<TUserArrRes> =>{
+export const listUsersService = async (): Promise<TUserArrRes> =>{
     const userRepo: Repository<User> = AppDataSource.getRepository(User);
 
     const users: TUserArr | null = await userRepo.find();

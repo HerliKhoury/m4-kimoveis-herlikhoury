@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { TUserArrRes, TUserReq, TUserReqUpdate, TUserRes } from "../interfaces/user.interfaces";
 import { createUserService } from "../services/users/createUser.service";
-import { listUsers } from "../services/users/listUsers.service";
+import { listUsersService } from "../services/users/listUsers.service";
 import { deleteUsersService } from "../services/users/deleteUser.service";
 import { updateUserService } from "../services/users/updateUser.service";
 
@@ -21,7 +21,7 @@ export const listAllUsersController = async(
     res: Response
 ): Promise<Response> => {
 
-    const usersList: TUserArrRes = await listUsers();
+    const usersList: TUserArrRes = await listUsersService();
 
     return res.status(200).json(usersList);
 };

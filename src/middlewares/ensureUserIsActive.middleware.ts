@@ -12,17 +12,17 @@ export const ensureUserIsActive = async (
 ): Promise<void> => {
     const userRepo: Repository<User> = AppDataSource.getRepository(User);
 
-    const userEmail: string = req.body.email;
+    const userId: number = parseInt(req.params.id);
 
     const user: User | null = await userRepo.findOne({
         where: {
-            email: userEmail,
-            deletedAt: ""
+            id: userId,
+            /* deletedAt: undefined */
         }
     });
 
     if (!user) {
-        throw new AppError("Usuário desativado", 401);
+        throw new AppError("User not found", 404);
     }
 
     return next();

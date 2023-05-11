@@ -9,7 +9,7 @@ export const ensureUserIsAdm = (
 ): void => {
     const isAdm: boolean = res.locals.admin; 
 
-    if(isAdm === false){
+    if(isAdm == false){
         throw new AppError("Insufficient permission", 403);
     };
 

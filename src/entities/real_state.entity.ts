@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeepPartial, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Address } from "./addresses.entity";
 import { Category } from "./categories.entity";
 
@@ -9,7 +9,7 @@ export class RealEstate {
     id: number
 
     @Column({type: 'boolean', default: false})
-    sold: boolean;
+    sold: boolean | undefined;
 
     @Column({ type: 'decimal', precision: 12, scale: 2 , default: 0})
     value: number | string;

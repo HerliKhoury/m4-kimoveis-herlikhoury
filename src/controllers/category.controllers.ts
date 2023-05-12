@@ -6,7 +6,7 @@ import { TRealEstateArr } from "../interfaces/realEstate.interfaces";
 import { retrieveRealEstateByCategoryIdService } from "../services/categories/retrieveRealEstateByCategoryId.service";
 import { Category } from "../entities";
 
-export const listAllCategories = async(
+export const listAllCategoriesController = async(
     req: Request,
     res: Response
 ): Promise<Response> => {
@@ -16,7 +16,7 @@ export const listAllCategories = async(
     return res.status(200).json(categoryList);
 };
 
-export const createCategory = async (
+export const createCategoryController = async (
     req: Request,
     res: Response
 ): Promise<Response> => {

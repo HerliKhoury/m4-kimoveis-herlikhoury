@@ -1,24 +1,29 @@
 import { Repository } from "typeorm";
-import { Schedule } from "../../entities";
 import { AppDataSource } from "../../data-source";
 import { AppError } from "../../errors/appError.error";
+import { TRealEstateReturn } from "../../interfaces/realEstate.interfaces";
+import { RealEstate } from "../../entities";
 
 
-export const listAllSchedulesByRealEstateService = async (realEstateId: number): Promise<Schedule> => {
-    const scheduleRepo: Repository<Schedule> = AppDataSource.getRepository(Schedule);
+export const listAllSchedulesByRealEstateService = async (realEstateId: number): Promise<TRealEstateReturn> => {
+    const realEstateRepo: Repository<RealEstate> = AppDataSource.getRepository(RealEstate);
 
-    const scheduleArr: Schedule | null = await scheduleRepo.findOne({
+    const realEstateFound: RealEstate | null = await realEstateRepo.findOne({
         where: {
-            id: realEstateId
+        id: realEstateId,
         },
-        relations:{
-            realEstate: true
-        }
+        relations: {
+        address: true,
+        category: true,
+        schedules: {
+            user: true,
+        },
+        },
     });
 
-    if(!scheduleArr){
-        throw new AppError("No schedules found", 404);
+    if (!realEstateFound) {
+        throw new AppError("RealEstate not found", 404);
     }
 
-    return scheduleArr;
+    return realEstateFound;
 }

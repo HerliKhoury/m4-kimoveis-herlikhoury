@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { Schedule } from "../entities";
 import { listAllSchedulesByRealEstateService } from "../services/schedules/listAllSchedulesByRealEstate.service";
 import { TScheduleReq } from "../interfaces/schedules.interfaces";
 import { createScheduleService } from "../services/schedules/createSchedule.service";
+import { TRealEstateReturn } from "../interfaces/realEstate.interfaces";
 
 export const createSchedulesController = async (
     req: Request,
@@ -21,7 +21,7 @@ export const listAllSchedulesController = async (
 ): Promise<Response> => {
     const realEstateId: number = parseInt(req.params.id);
 
-    const schedulesByRealEstate: Schedule = await listAllSchedulesByRealEstateService(realEstateId);
+    const schedulesByRealEstate: TRealEstateReturn = await listAllSchedulesByRealEstateService(realEstateId);
 
-    return res.status(200).json(schedulesByRealEstate);
+    return res.json(schedulesByRealEstate);
 }

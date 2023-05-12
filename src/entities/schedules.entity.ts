@@ -15,7 +15,7 @@ export class Schedule {
     hour: string;
 
     @ManyToOne(() => RealEstate )
-    real_state: RealEstate;
+    realEstate: RealEstate;
 
     @ManyToOne(() => User )
     user: User;

@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { realEstateSchema, realEstateSchemaReq, realEstateArr } from "../schemas/realEstate.schema";
+import { realEstateCreateSchema, realEstateReturnSchema } from "../schemas/realEstate.schema";
 
-export type TRealEstate = z.infer<typeof realEstateSchema>;
-export type TRealEstateReq = z.infer<typeof realEstateSchemaReq>;
-export type TRealEstateArr = z.infer<typeof realEstateArr>;
+export type TRealEstate = z.infer<typeof realEstateCreateSchema>;
+export type TRealEstateReturn = z.infer<typeof realEstateReturnSchema>;
+

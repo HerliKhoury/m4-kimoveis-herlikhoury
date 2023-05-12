@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { TCategory, TCategoryArr, TCategoryReq } from "../interfaces/category.interfaces";
 import { listCategoriesService } from "../services/categories/listCategories.service";
 import { createCategoryService } from "../services/categories/createCategory.service";
-import { TRealEstateArr } from "../interfaces/realEstate.interfaces";
 import { retrieveRealEstateByCategoryIdService } from "../services/categories/retrieveRealEstateByCategoryId.service";
 import { Category } from "../entities";
 

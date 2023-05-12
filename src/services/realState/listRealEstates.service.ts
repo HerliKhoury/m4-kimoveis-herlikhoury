@@ -4,13 +4,14 @@ import { RealEstate } from "../../entities";
 
 
 export const listRealEstatesService = async (): Promise<RealEstate[]> =>{
-    const realEstateRepo: Repository<RealEstate> = AppDataSource.getRepository(RealEstate);
+  const realEstateRepo: Repository<RealEstate> = 
+  AppDataSource.getRepository(RealEstate);
 
-    const foundRealEstate = await realEstateRepo.find({
-        relations: {
-          address: true,
-        },
-    });
+  const foundRealEstate = await realEstateRepo.find({
+    relations: {
+    address: true,
+    }
+  });
 
-    return foundRealEstate;
+  return foundRealEstate;
 };

@@ -5,7 +5,9 @@ import { Category } from "../../entities";
 import { categorySchema } from "../../schemas/category.schema";
 
 
-export const createCategoryService = async (newCategoryData: TCategoryReq): Promise<TCategory> => {
+export const createCategoryService = async (
+    newCategoryData: TCategoryReq
+): Promise<TCategory> => {
     const categoryRepo: Repository<Category> = AppDataSource.getRepository(Category);
 
     const newCategory: TCategory = categoryRepo.create(newCategoryData);

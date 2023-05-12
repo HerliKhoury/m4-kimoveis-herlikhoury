@@ -21,7 +21,8 @@ export const listAllSchedulesController = async (
 ): Promise<Response> => {
     const realEstateId: number = parseInt(req.params.id);
 
-    const schedulesByRealEstate: TRealEstateReturn = await listAllSchedulesByRealEstateService(realEstateId);
+    const schedulesByRealEstate: TRealEstateReturn = 
+    await listAllSchedulesByRealEstateService(realEstateId);
 
     return res.json(schedulesByRealEstate);
 }

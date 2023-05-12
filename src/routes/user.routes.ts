@@ -9,7 +9,26 @@ import { ensureUserIsActive } from "../middlewares/ensureUserIsActive.middleware
 
 export const userRoutes: Router = Router();
 
-userRoutes.post("", ensureBodyIsValid(userReqSchema), ensureEmailDontExist, createUserController);
+userRoutes.post(
+    "", 
+    ensureBodyIsValid(userReqSchema),
+    ensureEmailDontExist, 
+    createUserController
+);
+
 userRoutes.get("", ensureTokenIsValid, ensureUserIsAdm, listAllUsersController);
-userRoutes.patch("/:id",ensureBodyIsValid(userReqUpdateSchema), ensureTokenIsValid, updateUserController);
-userRoutes.delete("/:id",ensureTokenIsValid,  ensureUserIsActive , ensureUserIsAdm, deleteUserController);
+
+userRoutes.patch(
+    "/:id",
+    ensureBodyIsValid(userReqUpdateSchema), 
+    ensureTokenIsValid, 
+    updateUserController
+);
+
+userRoutes.delete(
+    "/:id",
+    ensureTokenIsValid,  
+    ensureUserIsActive, 
+    ensureUserIsAdm, 
+    deleteUserController
+);

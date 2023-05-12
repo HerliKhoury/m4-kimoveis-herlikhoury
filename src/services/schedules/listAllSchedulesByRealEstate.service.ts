@@ -5,8 +5,11 @@ import { TRealEstateReturn } from "../../interfaces/realEstate.interfaces";
 import { RealEstate } from "../../entities";
 
 
-export const listAllSchedulesByRealEstateService = async (realEstateId: number): Promise<TRealEstateReturn> => {
-    const realEstateRepo: Repository<RealEstate> = AppDataSource.getRepository(RealEstate);
+export const listAllSchedulesByRealEstateService = async (
+    realEstateId: number
+): Promise<TRealEstateReturn> => {
+    const realEstateRepo: Repository<RealEstate> = 
+    AppDataSource.getRepository(RealEstate);
 
     const realEstateFound: RealEstate | null = await realEstateRepo.findOne({
         where: {

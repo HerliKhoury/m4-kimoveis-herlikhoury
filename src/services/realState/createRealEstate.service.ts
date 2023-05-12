@@ -7,7 +7,9 @@ import { realEstateReturnSchema } from "../../schemas/realEstate.schema";
 
 
 
-export const createRealEstateService = async (newRealEstateData: TRealEstate): Promise<TRealEstateReturn> => {
+export const createRealEstateService = async (
+    newRealEstateData: TRealEstate
+): Promise<TRealEstateReturn> => {
     const addressRepo: Repository<Address> = AppDataSource.getRepository(Address);
 
     const address: Address = addressRepo.create(newRealEstateData.address);
@@ -33,7 +35,8 @@ export const createRealEstateService = async (newRealEstateData: TRealEstate): P
         throw new AppError("Category not found", 404);
     }
 
-    const realEstateRepo: Repository<RealEstate> = AppDataSource.getRepository(RealEstate);
+    const realEstateRepo: Repository<RealEstate> = 
+    AppDataSource.getRepository(RealEstate);
     
     const realEstate = realEstateRepo.create({
         ...newRealEstateData,

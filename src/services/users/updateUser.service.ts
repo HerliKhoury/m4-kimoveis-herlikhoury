@@ -11,7 +11,7 @@ export const updateUserService = async (
     userId: number, 
     userData: TUserReqUpdate, 
     res: Response
-    ): Promise<TUserRes> => {
+): Promise<TUserRes> => {
     const isAdm: boolean = res.locals.admin;
     const loggedId: number = res.locals.userId;
     const userRepo: Repository<User> = AppDataSource.getRepository(User);

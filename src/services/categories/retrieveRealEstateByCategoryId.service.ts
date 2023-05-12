@@ -4,7 +4,9 @@ import { Category } from "../../entities";
 import { AppError } from "../../errors/appError.error";
 
 
-export const retrieveRealEstateByCategoryIdService = async (categoryId: number): Promise<Category> => {
+export const retrieveRealEstateByCategoryIdService = async (
+    categoryId: number
+): Promise<Category> => {
     const categoryRepo: Repository<Category> = AppDataSource.getRepository(Category);
 
     const realEstateArr: Category | null = await categoryRepo.findOne({

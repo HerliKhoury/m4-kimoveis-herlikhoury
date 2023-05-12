@@ -11,7 +11,8 @@ export const createRealEstateController = async (
 ): Promise<Response> => {
     const newRealEstateData: TRealEstate = req.body;
 
-    const newRealEstate: TRealEstateReturn = await createRealEstateService(newRealEstateData);
+    const newRealEstate: TRealEstateReturn = 
+    await createRealEstateService(newRealEstateData);
 
     return res.status(201).json(newRealEstate);
 };

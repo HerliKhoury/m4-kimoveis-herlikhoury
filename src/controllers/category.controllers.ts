@@ -33,7 +33,8 @@ export const retrieveRealEstateByCategoryIdController = async (
 ): Promise<Response> => {
     const categoryId: number = parseInt(req.params.id);
 
-    const categoryRealStates: Category = await retrieveRealEstateByCategoryIdService(categoryId);
+    const categoryRealStates: Category = 
+    await retrieveRealEstateByCategoryIdService(categoryId);
 
     return res.json(categoryRealStates);
 }

@@ -25,9 +25,3 @@ export const userSchemaArr = z.array(userSchema);
 export const userSchemaArrRes = z.array(userResSchema);
 
 export const userReqUpdateSchema = userReqSchema.omit({ admin: true }).partial();
-
-/* export const userReqUpdateSchema = z.object({
-    name: z.string().max(45).optional(),
-    email: z.string().email().max(45).optional(),
-    password: z.string().max(120).optional(),
-}); */

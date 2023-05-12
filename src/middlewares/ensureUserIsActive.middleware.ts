@@ -16,8 +16,7 @@ export const ensureUserIsActive = async (
 
     const user: User | null = await userRepo.findOne({
         where: {
-            id: userId,
-            /* deletedAt: undefined */
+            id: userId
         }
     });
 
